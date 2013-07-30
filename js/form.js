@@ -43,6 +43,26 @@ $('form').submit(function() {
      *  and increase the global count of that font (*_cnt variable).
      *  Then update the graph to reflect that new count.
      */
+    if()
+    {
+        
+    }
+    else if()
+    {
+        
+    }
+    else if()
+    {
+        
+    }
+    else if()
+    {
+        
+    }
+    else
+    {
+        
+    }
 
     /* ADD YOUR CODE HERE */
 
