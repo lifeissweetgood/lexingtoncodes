@@ -33,6 +33,12 @@ $(document).ready(function() {
 });
 
 $('form').submit(function() {
+    /* TODO:
+     *  Take in the data passed in from the form
+     *  and parse it.  Find which font the user selected
+     *  and increase the global count of that font (*_cnt variable).
+     *  Then update the graph to reflect that new count.
+     */
 
     /* ADD YOUR CODE HERE */
 
