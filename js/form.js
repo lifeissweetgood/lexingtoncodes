@@ -1,7 +1,10 @@
+// Global counts per font
 var JS_cnt;
 var BS_cnt;
 var OST_cnt;
 var KS_cnt;
+
+// Position of font counts on graph
 var JS_Xcoord = 110;
 var JS_Ycoord = 150;
 var BS_Xcoord = 360;
@@ -30,34 +33,8 @@ $(document).ready(function() {
 });
 
 $('form').submit(function() {
-    var formArr = $('form').serializeArray();
-    console.log(formArr);
-    var preferredFont = formArr[1].value;
-    console.log(preferredFont);
 
-    // Redraw graph to update with latest counts
-    clearGraph();
-    drawGraph();
-    
-    switch(preferredFont)
-    {
-        case 'JosefinSans':
-                        JS_cnt++;
-                        break;
-        case 'BerkshireSwash':
-                        BS_cnt++;
-                        break;
-        case 'OldStdTT':
-                        OST_cnt++;
-                        break;
-        case 'KaushanScript':
-                        KS_cnt++;
-                        break;
-    }
-    updateCounts(JS_cnt, JS_Xcoord, JS_Ycoord);
-    updateCounts(BS_cnt, BS_Xcoord, BS_Ycoord);
-    updateCounts(OST_cnt, OST_Xcoord, OST_Ycoord);
-    updateCounts(KS_cnt, KS_Xcoord, KS_Ycoord);
+    /* ADD YOUR CODE HERE */
 
     return false;
 });
@@ -67,16 +44,12 @@ function drawGraph()
     var cir = document.getElementById("graphRadar");
     var ctx = cir.getContext("2d");
 
-    // Don't need to draw the circle for now.
-    //ctx.arc(250,250,250,0,2*Math.PI);
-
     ctx.moveTo(250,0);
     ctx.lineTo(250,500);
     ctx.moveTo(0,250);
     ctx.lineTo(500,250);
     ctx.stroke();
 
-    // TODO: make font match text
     ctx.font = "20px Arial";
     ctx.fillText("Josefin Sans",30,30);
     ctx.fillText("Berkshire Swash",330,30);
