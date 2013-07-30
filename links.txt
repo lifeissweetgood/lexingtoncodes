@@ -1,0 +1,12 @@
+// Font Links
+
+http://fonts.googleapis.com/css?family=Josefin+Sans:400,600
+http://fonts.googleapis.com/css?family=Old+Standard+TT:700
+http://fonts.googleapis.com/css?family=Berkshire+Swash
+http://fonts.googleapis.com/css?family=Kaushan+Script
+http://fonts.googleapis.com/css?family=Oswald:400,300
+http://fonts.googleapis.com/css?family=Cardo
+
+// jQuery Links
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
