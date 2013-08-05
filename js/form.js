@@ -67,7 +67,13 @@ $('form').submit(function() {
     return false;
 });
 
-// Takes in graph's context
+/* 
+ * These functions take in graph's context:
+ *      -drawGraph()
+ *      -updateCounts()
+ *      -clearGraph()
+ *
+ */
 function drawGraph(ctx)
 {
     // Don't need to draw the circle for now.
