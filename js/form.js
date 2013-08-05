@@ -11,7 +11,7 @@ var OST_Ycoord = 375;
 var KS_Xcoord = 360;
 var KS_Ycoord = 375;
 
-var cir;  // The circle
+var graph;  // The graph
 var ctx;  // The context
 
 $(document).ready(function() {
@@ -23,8 +23,8 @@ $(document).ready(function() {
     // Add graph to DOM
     $('.graph').append('<canvas id="graphRadar" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>');
 
-    cir = document.getElementById("graphRadar");
-    ctx = cir.getContext("2d");
+    graph = document.getElementById("graphRadar");
+    ctx = graph.getContext("2d");
 
     // Draw initial graph
     updateCounts(ctx, JS_cnt, JS_Xcoord, JS_Ycoord);
