@@ -11,6 +11,8 @@ var OST_Ycoord = 375;
 var KS_Xcoord = 360;
 var KS_Ycoord = 375;
 
+var cir;  // The circle
+var ctx;  // The context
 
 $(document).ready(function() {
     JS_cnt = 0;
@@ -21,12 +23,15 @@ $(document).ready(function() {
     // Add graph to DOM
     $('.graph').append('<canvas id="graphRadar" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>');
 
+    cir = document.getElementById("graphRadar");
+    ctx = cir.getContext("2d");
+
     // Draw initial graph
-    drawGraph();
-    updateCounts(JS_cnt, JS_Xcoord, JS_Ycoord);
-    updateCounts(BS_cnt, BS_Xcoord, BS_Ycoord);
-    updateCounts(OST_cnt, OST_Xcoord, OST_Ycoord);
-    updateCounts(KS_cnt, KS_Xcoord, KS_Ycoord);
+    updateCounts(ctx, JS_cnt, JS_Xcoord, JS_Ycoord);
+    updateCounts(ctx, BS_cnt, BS_Xcoord, BS_Ycoord);
+    updateCounts(ctx, OST_cnt, OST_Xcoord, OST_Ycoord);
+    updateCounts(ctx, KS_cnt, KS_Xcoord, KS_Ycoord);
+    drawGraph(ctx);
 });
 
 $('form').submit(function() {
@@ -36,8 +41,7 @@ $('form').submit(function() {
     console.log(preferredFont);
 
     // Redraw graph to update with latest counts
-    clearGraph();
-    drawGraph();
+    clearGraph(ctx);
     
     switch(preferredFont)
     {
@@ -54,19 +58,18 @@ $('form').submit(function() {
                         KS_cnt++;
                         break;
     }
-    updateCounts(JS_cnt, JS_Xcoord, JS_Ycoord);
-    updateCounts(BS_cnt, BS_Xcoord, BS_Ycoord);
-    updateCounts(OST_cnt, OST_Xcoord, OST_Ycoord);
-    updateCounts(KS_cnt, KS_Xcoord, KS_Ycoord);
+    updateCounts(ctx, JS_cnt, JS_Xcoord, JS_Ycoord);
+    updateCounts(ctx, BS_cnt, BS_Xcoord, BS_Ycoord);
+    updateCounts(ctx, OST_cnt, OST_Xcoord, OST_Ycoord);
+    updateCounts(ctx, KS_cnt, KS_Xcoord, KS_Ycoord);
+    drawGraph(ctx);
 
     return false;
 });
 
-function drawGraph()
+// Takes in graph's context
+function drawGraph(ctx)
 {
-    var cir = document.getElementById("graphRadar");
-    var ctx = cir.getContext("2d");
-
     // Don't need to draw the circle for now.
     //ctx.arc(250,250,250,0,2*Math.PI);
 
@@ -84,17 +87,13 @@ function drawGraph()
     ctx.fillText("Kaushan Script",330,480);
 }
 
-function updateCounts(fontText, countX, countY)
+function updateCounts(ctx, fontText, countX, countY)
 {
-    var cir = document.getElementById("graphRadar");
-    var ctx = cir.getContext("2d");
     ctx.font = "60px Arial";
     ctx.fillText(fontText, countX, countY);
 }
 
-function clearGraph()
+function clearGraph(ctx)
 {
-    var cir = document.getElementById("graphRadar");
-    var ctx = cir.getContext("2d");
     ctx.clearRect(0,0,500,500);
 }
