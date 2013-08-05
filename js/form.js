@@ -37,8 +37,12 @@ $(document).ready(function() {
 $('form').submit(function() {
     var formArr = $('form').serializeArray();
     console.log(formArr);
+    var userName = formArr[0].value;
     var preferredFont = formArr[1].value;
+    var yrsDesign = formArr[2].value;
     console.log(preferredFont);
+
+    storeUserData(userName, preferredFont, yrsDesign);
 
     // Redraw graph to update with latest counts
     clearGraph(ctx);
@@ -102,4 +106,9 @@ function updateCounts(ctx, fontText, countX, countY)
 function clearGraph(ctx)
 {
     ctx.clearRect(0,0,500,500);
+}
+
+function storeUserData(name, font, years)
+{
+    alert("Hey, "+name+"! I see you like "+font+" & that you've been desiging for "+years+" years!");
 }
